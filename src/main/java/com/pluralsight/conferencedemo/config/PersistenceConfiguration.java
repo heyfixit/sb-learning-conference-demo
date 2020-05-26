@@ -27,14 +27,14 @@ public class PersistenceConfiguration {
     // already exists in the Spring context, if it does, spring will replace it with this one
 
     // Spring needs to know it's a Spring Bean via the @Bean annotation
-    @Bean
-    public DataSource dataSource() {
-        // where config actually happens in Java config class
-        DataSourceBuilder<? extends DataSource> builder = DataSourceBuilder.create();
-        builder.url("jdbc:postgresql://192.168.1.7:32768/conference_app");
-        builder.username(dbUsername);
-        builder.password(dbPassword);
-        System.out.println("My custom datasource bean has bean initialized and set");
-        return builder.build();
-    }
+//    @Bean
+//    public DataSource dataSource() {
+//        // where config actually happens in Java config class
+//        DataSourceBuilder<? extends DataSource> builder = DataSourceBuilder.create();
+//        builder.url("jdbc:postgresql://localhost:3000/conference_app");
+//        builder.username(dbUsername);
+//        builder.password(dbPassword);
+//        System.out.println("My custom datasource bean has bean initialized and set");
+//        return builder.build();
+//    }
 }

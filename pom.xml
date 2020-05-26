@@ -29,6 +29,22 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+
+<!--		Excluding the Tomcat dependency ( for cases where we want other containers running our apps )-->
+<!--		Other Containers include: Jetty and Undertow-->
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+<!--	Add Jetty Dependency (requires exclusion for tomcat)-->
+<!--	At this (point excluding boot and adding jetty dependency), you've swapped containers-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jetty</artifactId>
 		</dependency>
 
 <!--		Pulls in the libraries we need to work with jpa repos-->
@@ -66,6 +82,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<executable>true</executable>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
